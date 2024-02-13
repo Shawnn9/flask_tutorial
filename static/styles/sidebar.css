@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -10,21 +11,17 @@
   transition: var(--tran-05);
   z-index: 100;
 }
+
 .sidebar.close {
   width: 88px;
 }
+
 .sidebar li {
   height: 50px;
   list-style: none;
   display: flex;
   align-items: center;
   margin-top: 10px;
-}
-
-.sidebar header .image,
-.sidebar .icon {
-  min-width: 60px;
-  border-radius: 6px;
 }
 
 .sidebar .icon {
@@ -37,50 +34,21 @@
   font-size: 20px;
 }
 
-.sidebar .text,
-.sidebar .icon {
-  color: var(--text-color);
-  transition: var(--tran-03);
-}
-
 .sidebar .text {
+  color: var(--text-color);
   font-size: 17px;
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
+  transition: var(--tran-03);
 }
+
 .sidebar.close .text {
   opacity: 0;
 }
+
 .sidebar header {
   position: relative;
-}
-
-.sidebar header .image-text {
-  display: flex;
-  align-items: center;
-
-}
-.sidebar header .logo-text {
-  display: flex;
-  flex-direction: column;
-}
-header .image-text .name {
-  margin-top: 2px;
-  font-size: 18px;
-  font-weight: 600;
-}
-header .image-text .profession {
-  font-size: 16px;
-  margin-top: -2px;
-  display: block;
-  border-radius: 50%;
-}
-.image{
-  transition: transform .7s ease-in-out;
-}
-.image:hover{
-  transform: rotate(360deg);
 }
 
 .sidebar header .image {
@@ -143,6 +111,7 @@ body.dark .sidebar header .toggle {
   font-weight: 500;
   transition: var(--tran-05);
 }
+
 .sidebar li a {
   list-style: none;
   height: 100%;
@@ -159,10 +128,12 @@ body.dark .sidebar header .toggle {
 .sidebar li a:hover {
   background-color: var(--primary-color);
 }
+
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
   color: var(--sidebar-color);
 }
+
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text {
   color: var(--text-color);
@@ -175,6 +146,7 @@ body.dark .sidebar li a:hover .text {
   justify-content: space-between;
   overflow-y: scroll;
 }
+
 .menu-bar::-webkit-scrollbar {
   display: none;
 }
