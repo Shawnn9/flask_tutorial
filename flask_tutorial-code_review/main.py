@@ -1,71 +1,69 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-from flask_pymongo import PyMongo
 from datetime import datetime
-from flask_migrate import Migrate
+from pymongo import MongoClient
+from config import Config
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    flash
+)
+from flask_pymongo import PyMongo
 from config import DevelopmentConfig
 
-app = Flask(__name__, static_url_path='/static')
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/yourdatabase'
+
+app = Flask(__name__)
+app.config.from_object(Config)
 mongo = PyMongo(app)
 
-class Entry:
-    def __init__(self, user_id):
-        self.timestamp = datetime.utcnow()
-        self.user_id = user_id
-
-class User:
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
 @app.route('/')
 def login():
     return render_template('login.html')
+
 @app.route('/index/', methods=['POST'])
 def index():
+    global new_user
     if request.method == 'POST':
-        username = request.form['nm']
+        username = request.form['name']
         password = request.form['password']
 
-        # Check if the user already exists
         user = mongo.db.users.find_one({'username': username})
-
         if user:
-            # If the user exists, update the password
             mongo.db.users.update_one({'username': username}, {'$set': {'password': password}})
         else:
-            # If the user doesn't exist, create a new user
             new_user = {'username': username, 'password': password}
             mongo.db.users.insert_one(new_user)
 
-            # Create a new entry for the user
-            entry = {'user_id': new_user['_id'], 'timestamp': datetime.utcnow()}  # Assuming _id is automatically generated
+            entry = {'user_id': str(new_user['_id']), 'timestamp': datetime.utcnow()}
             mongo.db.entries.insert_one(entry)
 
         flash('Logged in successfully!')
-        session['username'] = username
+        session['user_id'] = str(new_user['_id'])
 
-        return redirect(url_for('page1'))
+        return redirect(url_for('mainPage'))
 
     return redirect(url_for('login'))
 
-@app.route('/page1/')
+@app.route('/mainPage/')
 def page1():
-    # Retrieve user information from the session
-    username = session.get('username')
-    password = None  # There's no 'password' in the session
+    user_id = session.get('user_id')
+    user = mongo.db.users.find_one({'_id': user_id})
 
-    return render_template('page1.html', username=username, password=password)
+    if user:
+        username = user['username']
+        password = None
+    else:
+        flash('User not found!')
+        return redirect(url_for('login'))
+
+    return render_template('mainPage.html', username=username, password=password)
 
 @app.route('/analytics/')
 def analytics():
-    username = session.get('name', 'Guest')  # Access the username from the session
-    print("Username:", username)  # Print for debugging
-
-    # Retrieve all users from the MongoDB collection
     users = mongo.db.users.find()
-
-    return render_template('analytics.html', users=users, session_name=username)
-
+    return render_template('analytics.html', users=users)
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True)

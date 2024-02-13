@@ -1,9 +1,8 @@
-import secrets
+import os
 
 class Config:
-    DEBUG = False
     TESTING = False
-    SECRET_KEY = secrets.token_urlsafe(32)
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'default_secret_key'
     MONGO_URI = 'mongodb://localhost:27017/yourdatabase'
 
 class DevelopmentConfig(Config):
@@ -11,4 +10,3 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     MONGO_URI = 'mongodb://user:password@localhost:27017/db_name'
-    # Add other production-specific configurations

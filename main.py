@@ -1,22 +1,26 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-from flask_pymongo import PyMongo
 from datetime import datetime
+
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    flash
+)
+from flask_pymongo import PyMongo
 from flask_migrate import Migrate
 from config import DevelopmentConfig
 
+from entry import Entry
+from user import User
+
+
 app = Flask(__name__, static_url_path='/static')
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/yourdatabase'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/yourdatabase' #TODO:change the url
 mongo = PyMongo(app)
 
-class Entry:
-    def __init__(self, user_id):
-        self.timestamp = datetime.utcnow()
-        self.user_id = user_id
-
-class User:
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
 @app.route('/')
 def login():
     return render_template('login.html')
@@ -44,17 +48,17 @@ def index():
         flash('Logged in successfully!')
         session['username'] = username
 
-        return redirect(url_for('page1'))
+        return redirect(url_for('mainPage'))
 
     return redirect(url_for('login'))
 
-@app.route('/page1/')
-def page1():
+@app.route('/mainPage/')
+def mainPage():
     # Retrieve user information from the session
     username = session.get('username')
     password = None  # There's no 'password' in the session
 
-    return render_template('page1.html', username=username, password=password)
+    return render_template('mainPage.html', username=username, password=password)
 
 @app.route('/analytics/')
 def analytics():
@@ -68,4 +72,11 @@ def analytics():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    entry = Entry(user_id=123)
+    print("Timestamp:", entry.timestamp)
+    print("User ID:", entry.user_id)
+
+    user = User(username="Shawn", password="Shawn1405")
+    print("Username:", user.username)
+    print("Password:", user.password)
+    app.run(debug=True)

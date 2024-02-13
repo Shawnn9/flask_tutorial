@@ -1,11 +1,10 @@
 import secrets
-
+import string
 class Config:
     DEBUG = False
     TESTING = False
-    SECRET_KEY = secrets.token_urlsafe(32)
+    SECRET_KEY = ''.join(secrets.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(32))
     MONGO_URI = 'mongodb://localhost:27017/yourdatabase'
-
 class DevelopmentConfig(Config):
     DEBUG = True
 

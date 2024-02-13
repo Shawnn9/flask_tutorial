@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+:root {
+  --sidebar-min-width: 88px;
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -11,7 +14,7 @@
   z-index: 100;
 }
 .sidebar.close {
-  width: 88px;
+  width: var(--sidebar-min-width);
 }
 .sidebar li {
   height: 50px;
