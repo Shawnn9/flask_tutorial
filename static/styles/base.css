@@ -1,43 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
-  :root {
-    /* ===== Colors ===== */
-    --body-color: none;
-    --sidebar-color: #fff;
-    --primary-color: rgb(63, 90, 211);
-    --primary-color-light: #f6f5ff;
-    --toggle-color: #ddd;
-    --text-color: #707070;
 
-    /* ====== Transition ====== */
-    --tran-03: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.3s ease;
-    --tran-05: all 0.3s ease;
-  }
+:root {
+  --body-color: none;
+  --sidebar-color: #fff;
+  --primary-color: rgb(63, 90, 211);
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #707070;
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
 
-  body {
-    min-height: 100vh;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-  }
-  *{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
+body {
+  min-height: 100vh;
+  background-color: var(--body-color);
+  transition: var(--tran-05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  line-height: 0;
+}
+
 
 ::selection {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
+  background-color: var(--primary-color);
+  color: #fff;
+}
 
-  body.dark {
-    --body-color: none;
-    --sidebar-color: #242526;
-    --primary-color: rgb(63, 90, 211);
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-  }
-
+body.dark {
+  --body-color: none;
+  --sidebar-color: #242526;
+  --primary-color: rgb(63, 90, 211);
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
+  color: #fff;
+}

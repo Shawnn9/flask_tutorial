@@ -21,15 +21,17 @@
     .mode .sun-moon i {
       position: absolute;
     }
-    .mode .sun-moon i.sun {/*This is a class selector targeting an element with the class */
-      opacity: 0;/*making it completely transparent and invisible.*/
-    }
-    body.dark .mode .sun-moon i.sun {
-      opacity: 1;
-    }
-    body.dark .mode .sun-moon i.moon {
-      opacity: 0;
-    }
+ .mode .sun-moon i.sun {
+  visibility: hidden; /
+}
+
+  body.dark .mode .sun-moon i.sun {
+  visibility: visible; /
+}
+
+  body.dark .mode .sun-moon i.moon {
+  visibility: hidden;
+}
 
     .menu-bar .bottom-content .toggle-switch {
       position: absolute;
