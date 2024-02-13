@@ -1,14 +1,6 @@
 from datetime import datetime
 
-from flask import (
-    Flask,
-    render_template,
-    request,
-    redirect,
-    url_for,
-    session,
-    flash
-)
+from flask import Flask,render_template, request, redirect, url_for, session, flash
 from flask_pymongo import PyMongo
 from flask_migrate import Migrate
 from config import DevelopmentConfig
