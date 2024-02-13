@@ -1,15 +1,8 @@
 from datetime import datetime
 from pymongo import MongoClient
 from config import Config
-from flask import (
-    Flask,
-    render_template,
-    request,
-    redirect,
-    url_for,
-    session,
-    flash
-)
+from flask import  Flask, render_template,request,redirect, url_for, session, flash
+
 from flask_pymongo import PyMongo
 from config import DevelopmentConfig
 
