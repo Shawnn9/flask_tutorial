@@ -17,7 +17,7 @@ def login():
 @app.route('/index/', methods=['POST'])
 def index():
     if request.method == 'POST':
-        username = request.form['nm']
+        username = request.form['username']
         password = request.form['password']
 
         user = db.users.find_one({'username': username})
