@@ -1,14 +1,10 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from pymongo import MongoClient
-from config import DevelopmentConfig
 
 app = Flask(__name__, static_url_path='/static')
-app.config.from_object(DevelopmentConfig)
-
 client = MongoClient(app.config['MONGO_URI'])
 db = client.get_default_database()
-
 @app.route('/')
 def login():
     return render_template('login.html')
@@ -37,7 +33,7 @@ def index():
 
     return redirect(url_for('login'))
 
-@app.route('/mainPage/')
+@app.route('/mainpage/')
 def main_page():
     username = session.get('username')
     password = session.get('password')
@@ -53,4 +49,4 @@ def analytics():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
