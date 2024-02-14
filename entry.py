@@ -1,4 +1,6 @@
 from datetime import datetime
+
+
 class Entry:
     def __init__(self, user_id):
         self.timestamp = datetime.utcnow()
