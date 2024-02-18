@@ -5,7 +5,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__, static_url_path='/static')
 client = MongoClient(app.config['MONGO_URI'])
-db = client.get_default_database()  # TODO: read about get_default_database
+db = client.get_default_database()
 
 
 @app.route('/')
