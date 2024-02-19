@@ -1,5 +1,4 @@
-pycache/
+__pycache__/
 
 .idea/
 
-folders/
