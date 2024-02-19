@@ -1,7 +1,7 @@
 from functools import lru_cache
 import secrets
 
-@lru_cache(maxsize=None)
+@lru_cache(maxsize=1)
 def get_config():
     return {
         'SECRET_KEY': secrets.token_hex(16),
