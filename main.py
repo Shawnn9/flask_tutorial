@@ -42,7 +42,7 @@ def index():
 def main_page():
     username = session.get('username')
 
-    return render_template('page1.html', username=username)
+    return render_template('main_page.html', username=username)
 
 
 @app.route('/analytics/')
