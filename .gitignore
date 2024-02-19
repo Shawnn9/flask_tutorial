@@ -1,0 +1,8 @@
+# Ignore Python bytecode files
+pycache/
+
+# Ignore IDE specific files
+.idea/
+
+# Ignore specific folders (replace "folders" with actual folder names)
+folders/
