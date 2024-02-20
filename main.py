@@ -40,7 +40,7 @@ def index():
 
 @app.route('/main/')
 def main_page():
-    username = session.get('username')
+    username = (session.get('username'))
 
     return render_template('main_page.html', username=username)
 
