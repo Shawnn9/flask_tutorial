@@ -1,14 +1,13 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from user_dal import fetch_user_by_username, create_user
+from dal.user_dal import fetch_user_by_username, create_user
 from models.user import User
 from beanie import init_beanie
 from beanie.mongodb.client import MongoDBClient
-
+from user_dal import get_all_users
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'your_secret_key'
-
 
 async def connect_to_db():
     await init_beanie(database='your_database_name', document_models=[User], client=MongoDBClient())
@@ -18,7 +17,9 @@ def login():
     return render_template('login.html')
 
 @app.route('/index/', methods=['POST'])
-async def index(db=None):
+async def index():
+    await connect_to_db()  # Ensure database connection is established before processing requests
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -31,7 +32,7 @@ async def index(db=None):
             user = await create_user(username, password)
 
             entry = {'user_id': user.id, 'timestamp': datetime.utcnow()}
-            await db.entries.insert_one(entry)
+            await db.entries.insert_one(entry)  # Make sure `db` is correctly defined
 
         flash('Logged in successfully!')
         session['username'] = username

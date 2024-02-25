@@ -8,3 +8,7 @@ async def create_user(username: str, password: str) -> UserModel:
     user = UserModel(username=username, password=password)
     await user.insert()
     return user
+# user_dal.py
+async def get_all_users():
+    users = await db.users.find({}, {"password": 0}).to_list()
+    return users
