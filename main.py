@@ -4,7 +4,7 @@ from dal.user_dal import fetch_user_by_username, create_user
 from models.user import User
 from beanie import init_beanie
 from beanie.mongodb.client import MongoDBClient
-from user_dal import get_all_users
+from dal.user_dal import get_all_users
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'your_secret_key'
