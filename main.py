@@ -28,8 +28,8 @@ async def index():
         else:
             user = await User(username=username, password=password).insert()
 
-            entry = {'user_id': str(user.id), 'timestamp': datetime.utcnow()}  # Convert ObjectId to string
-            await app.config['db'].entries.insert_one(entry)  # Assuming db is your MongoDB connection
+            entry = {'user_id': str(user.id), 'timestamp': datetime.utcnow()}
+            await app.config['db'].entries.insert_one(entry)
 
         flash('Logged in successfully!')
         session['username'] = username
