@@ -18,7 +18,7 @@ def login():
 
 @app.route('/index/', methods=['POST'])
 async def index():
-    await connect_to_db()  # Ensure database connection is established before processing requests
+    await connect_to_db()
 
     if request.method == 'POST':
         username = request.form['username']
