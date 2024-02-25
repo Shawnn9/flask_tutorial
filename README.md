@@ -1,11 +1,7 @@
 # flask_tutorial
 
 
-<div align="center">
-  <img src="static/images/logo.jpg" alt="Logo" width="200">
-</div>
 
----
 
 ## Overview
 
