@@ -2,13 +2,12 @@ from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from models.user import User
 from beanie import init_beanie
-from beanie.mongodb.client import MongoDBClient
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'your_secret_key'
 
 async def connect_to_db():
-    await init_beanie(database='your_database_name', document_models=[User], client=MongoDBClient())
+    await init_beanie(database='your_database_name', document_models=[User], uri="mongodb://localhost:27017/")
 
 @app.route('/')
 def login():
