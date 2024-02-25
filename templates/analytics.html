@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}" >
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/base.css')}}" >
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/sidebar.css')}}" >
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/darkMode.css')}}" >
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/analytics.css')}}" >
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="success-message">
+        {% for msg in messages %}
+          <p style="color: white;">{{msg}}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <table border="1" style="color: white;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{% if user.username %}{{ user.username }}{% else %}None{% endif %}</td>
+          <td>{{ user.password }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
