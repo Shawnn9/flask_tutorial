@@ -32,7 +32,7 @@ async def index():
             user = await create_user(username, password)
 
             entry = {'user_id': user.id, 'timestamp': datetime.utcnow()}
-            await db.entries.insert_one(entry)  # Make sure `db` is correctly defined
+            await db.entries.insert_one(entry)
 
         flash('Logged in successfully!')
         session['username'] = username
