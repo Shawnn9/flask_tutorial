@@ -9,4 +9,5 @@ async def update_user_password(username: str, new_password: str):
     if user:
         await user.update(password=new_password)
         return True
-    return False
+    else:
+        return False

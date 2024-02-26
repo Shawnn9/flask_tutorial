@@ -17,10 +17,11 @@
 }
 
 .user-table th {
-    background-color: #f2f2f2;
+    background-color: var(--table-header-bg-color);
 }
 :root{
     --primary-color: #4CAF50;
+    --table-header-bg-color:#f2f2f2;
 }
 .success-message {
     position: fixed;

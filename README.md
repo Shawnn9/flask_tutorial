@@ -12,7 +12,7 @@
 This project is a Flask tutorial that demonstrates how to build a web application using the Flask framework. It covers basic concepts such as routing, templates, forms, and database integration. 
 
 ## Technology Stack
-
+   
 - **Framework**: Flask
 - **Frontend**: HTML, CSS
 - **Backend**: Python
