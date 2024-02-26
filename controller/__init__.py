@@ -13,7 +13,7 @@ import struct
 import sys
 import threading
 import time
-from .main_bp import main_bp
+from .main import main_bp
 try:
     import zlib # We may need its compression method
     crc32 = zlib.crc32

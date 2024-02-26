@@ -1,17 +1,11 @@
-from flask import Flask
-from auth import auth_bp
-from main import main_bp
-from analytics import analytics_bp
+from flask import Blueprint, render_template, session
 
-app = Flask(__name__, static_url_path='../static')
-app.secret_key = 'your_secret_key'
-app.register_blueprint(auth_bp)
-app.register_blueprint(main_bp)
-app.register_blueprint(analytics_bp)
+from models.user import User
 
-if __name__ == '__main__':
-    app.run()
+main_bp = Blueprint('main_bp', __name__)
 
+@main_bp.route('/main/')
+def main():
+    username = session.get('username')
+    return render_template('main.html', username=username)
 
-def main_bp():
-    return None

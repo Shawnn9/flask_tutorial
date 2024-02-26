@@ -2289,3 +2289,7 @@ from zipfile._path import (  # noqa: E402
     # used privately for tests
     CompleteDirs,  # noqa: F401
 )
+
+
+def auth():
+    return None
