@@ -1,4 +1,5 @@
 <!--this page is a sidebar page -->
+{% extends "base.html" %}
 {% block content %}
 <!--    <h1>Home page </h1>-->
 
@@ -8,22 +9,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main page</title>
+    <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}" >
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/base.css')}}" >
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/sidebar.css')}}" >
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/darkMode.css')}}" >
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/analytics.css')}}" >
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
 </head>
-<body style="background-image:url('../../images/img.jpg')">
+<body src='/static/images/img.jpg'>
   <nav class="sidebar close">
 
     <header>
       <div class="image-text">
         <span class="image">
-          <img src="logo.jpg" alt="">
+          <img src="/images/logo.jpg" alt="">
         </span>
         <div class="text logo-text">
           <span class="name">TopTeam</span>
@@ -61,13 +61,13 @@
         </ul>
       </div>
       <div class="bottom-content">
-        <li class="">
+        <li>
           <a href="#">
             <i class='bx bx-log-out icon'></i>
             <span class="text nav-text" href="#">Logout</span>
           </a>
         </li>
-        <li class="dark_mode">
+        <li class="mode">
           <div class="sun-moon">
             <i class='bx bx-moon icon moon'></i>
             <i class='bx bx-sun icon sun'></i>
@@ -83,7 +83,7 @@
 
   <section class="home">
   </section>
-<script src="{{ url_for('static', filename='sidebarFucs.js') }}"></script>
+<script src="{{ url_for('static', filename='sidebar_utilities.js') }}"></script>
 </body>
 
 </html>

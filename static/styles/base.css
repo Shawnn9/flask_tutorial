@@ -4,13 +4,17 @@
   --body-color: none;
   --sidebar-color: #fff;
   --primary-color: rgb(63, 90, 211);
-  --primary-color-light: #f6f5ff;
-  --toggle-color: #ddd;
-  --text-color: #707070;
+  --primary-color-light1: #f6f5ff;
+  --toggle-color1: #ddd;
+  --text-color1: #707070;
   --tran-02: all 0.2s ease;
   --tran-03: all 0.3s ease;
   --tran-04: all 0.3s ease;
   --tran-05: all 0.3s ease;
+  --white: #fff;
+  --primary-color-light2: #3a3b3c;
+  --toggle-color2: #fff;
+  --text-color2: #ccc;
 }
 
 body {
@@ -27,23 +31,16 @@ body {
   line-height: 0;
 }
 
-:root{
-  --white: #fff;
-}
 ::selection {
   background-color: var(--primary-color);
   color: var(--white);
 }
-:root {
-  --primary-color-light: #3a3b3c;
-  --toggle-color: #fff;
-  --text-color: #ccc;
-}
+
 body.dark {
   --body-color: none;
   --sidebar-color: #242526;
   --primary-color: rgb(63, 90, 211);
-  background-color: var(--primary-color-light);
-  background-color: var(--toggle-color);
-  color: var(--text-color);
+  background-color: var(--primary-color-light2);
+  background-color: var(--toggle-color2);
+  color: var(--text-color2);
 }

@@ -15,7 +15,7 @@ This project is a Flask tutorial that demonstrates how to build a web applicatio
    
 - **Framework**: Flask
 - **Frontend**: HTML, CSS
-- **Backend**: Python
+- **Backend**: Python, Beanie(MongoDB ORM)
 - **Database**: MongoDB
 
 ## Getting Started

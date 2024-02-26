@@ -1,11 +1,9 @@
-from beanie import Document
-from beanie import StringProperty
+from pydantic import BaseModel, EmailStr
 
-class UserModel(Document):
-    username = StringProperty(required=True)
-    password = StringProperty(required=True)
-    email = StringProperty(required=True)
+class User(BaseModel):
+    username: str
+    password: str
+    email: EmailStr
 
-
-class User:
+class UserModel(BaseModel, EmailStr):
     pass

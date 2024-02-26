@@ -32,3 +32,13 @@
     padding: 15px;
     margin: 15px;
 }
+:root{
+    --color:#ffff;
+}
+table{
+    border:1px;
+    color:var(--color);
+}
+message_alert{
+    color:var(--color);
+}
