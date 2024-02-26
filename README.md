@@ -4,7 +4,8 @@
 <div align="center">
   <img src="static/images/logo.png" alt="Logo" width="200">
 </div>
-![GitHub repo size](https://img.shields.io/github/repo-size/Shawnn9/flask_tutorial1)
+[![Repo Size](https://img.shields.io/github/repo-size/Shawnn9/flask_tutorial1)](https://github.com/Shawnn9/flask_tutorial1)
+[![Last Commit](https://img.shields.io/github/last-commit/Shawnn9/flask_tutorial1)](https://github.com/Shawnn9/flask_tutorial1)
 
 ---
 
