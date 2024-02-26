@@ -2,8 +2,9 @@
 
 
 <div align="center">
-  <img src="static/images/logo.jpg" alt="Logo" width="200">
+  <img src="static/images/logo.png" alt="Logo" width="200">
 </div>
+![GitHub repo size](https://img.shields.io/github/repo-size/Shawnn9/flask_tutorial1)
 
 ---
 
@@ -12,11 +13,10 @@
 This project is a Flask practice that demonstrates how to build a web application using the Flask framework. It covers basic concepts such as routing, templates, forms, and database integration. 
 
 ## Technology Stack
-   
-- **Framework**: Flask
-- **Frontend**: HTML, CSS
-- **Backend**: Python, Beanie(MongoDB ORM)
-- **Database**: MongoDB
+
+- **Frontend**: [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- **Backend**: [Python](https://www.python.org/), [Beanie](https://github.com/roman-right/beanie), [Flask](https://flask.palletsprojects.com/en/2.0.x/), [MongoDB](https://www.mongodb.com/)
+
 
 ## Getting Started
 
