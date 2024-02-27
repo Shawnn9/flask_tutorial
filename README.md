@@ -3,12 +3,12 @@
 <div align="center">
   <img src="static/images/logo.png" alt="Logo" width="200">
 <br>
-<strong> CyberTeam </strong>
+<strong><h2>CyberTeam</h2></strong>
 </div>
 
 [![Repo Size](https://img.shields.io/github/repo-size/Shawnn9/flask_tutorial)](https://github.com/Shawnn9/flask_tutorial1)
+[![Python Version](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/downloads/release/python-380/)
 [![Last Commit](https://img.shields.io/github/last-commit/Shawnn9/flask_tutorial)](https://github.com/Shawnn9/flask_tutorial1)
-[![Python Version](https://img.shields.io/badge/Python-3.8-blue)](https://www.python.org/downloads/release/python-380/)
 
 ---
 
