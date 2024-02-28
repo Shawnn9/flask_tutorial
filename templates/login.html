@@ -1,13 +1,12 @@
 {% extends "index.html" %}
 {% block title %}Login Page{% endblock %}
 
-{% block content %}
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/base.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/sidebar.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/darkMode.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/analytics.css')}}" >
-     {% with messages = get_flashed_messages() %}
+{% block content %}<link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/darkMode.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/analytics.css">
+{% with messages = get_flashed_messages() %}
           {% if messages %}
                {% for msg in messages %}
                     <p>{{msg}}</p>

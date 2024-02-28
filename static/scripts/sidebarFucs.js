@@ -1,25 +1,23 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const body = document.querySelector('body');
-    const sidebar = body.querySelector('nav');
-    const toggle = body.querySelector(".toggle");
+    const sidebar = document.querySelector('.sidebar');
+    const toggle = document.querySelector(".toggle");
+    const modeText = document.querySelector(".mode-text");
 
     toggle.addEventListener("click", () => {
-      console.log("Toggle clicked");
-      sidebar.classList.toggle("close");
+        sidebar.classList.toggle("close");
     });
 
-    const searchBtn = body.querySelector(".search-box");
+    const searchBtn = document.querySelector(".search-box");
 
     searchBtn.addEventListener("click", () => {
-      sidebar.classList.remove("close");
+        sidebar.classList.remove("close");
     });
 
-    const modeSwitch = body.querySelector(".toggle-switch");
-    const modeText = body.querySelector(".mode-text");
+    const modeSwitch = document.querySelector(".toggle-switch");
 
     modeSwitch.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      modeText.innerText = body.classList.contains("dark") ? "Light mode" : "Dark mode";
+        body.classList.toggle("dark");
+        modeText.innerText = body.classList.contains("dark") ? "Light mode" : "Dark mode";
     });
-  });
+});

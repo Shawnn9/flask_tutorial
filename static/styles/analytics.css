@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+:root {
+    --primary-color: #5963ef;
+    --table-header-bg-color: #f2f2f2;
+    --color: #333;
+    --text-color: #000;
+}
+
 .title-container {
     text-align: center;
     margin-top: 20px;
@@ -19,10 +28,7 @@
 .user-table th {
     background-color: var(--table-header-bg-color);
 }
-:root{
-    --primary-color: #4CAF50;
-    --table-header-bg-color:#f2f2f2;
-}
+
 .success-message {
     position: fixed;
     top: 0;
@@ -32,13 +38,12 @@
     padding: 15px;
     margin: 15px;
 }
-:root{
-    --color:#ffff;
+
+table {
+    border: 1px;
+    color: var(--color);
 }
-table{
-    border:1px;
-    color:var(--color);
-}
-message_alert{
-    color:var(--color);
+
+.message_alert {
+    color: var(--color);
 }

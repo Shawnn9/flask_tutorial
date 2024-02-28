@@ -1,90 +1,80 @@
-<!--this page is a sidebar page -->
-{% extends "base.html" %}
-{% block content %}
-<!--    <h1>Home page </h1>-->
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/base.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/sidebar.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/darkMode.css')}}" >
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/analytics.css')}}" >
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/darkMode.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/analytics.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
-<body src='/static/images/img.jpg'>
-  <nav class="sidebar close">
-
-    <header>
-      <div class="image-text">
-        <span class="image">
-          <img src="/images/logo.jpg" alt="">
-        </span>
-        <div class="text logo-text">
-          <span class="name">TopTeam</span>
-          <span class="profession">Cyber</span>
+<body style="background-image:url('/static/images/img.jpg')">
+    <script src="/static/scripts/sidebarFucs.js"></script>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/static/images/logo.png" alt="">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">TopTeam</span>
+                    <span class="profession">Cyber</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text" href="#">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Revenue</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="analytics.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li>
+                    <a href="index.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text" href="index.html">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
         </div>
-      </div>
-      <i class='bx bx-chevron-right toggle'></i>
-    </header>
-
-    <div class="menu-bar">
-      <div class="menu">
-        <li class="search-box">
-          <i class='bx bx-search icon'></i>
-          <input type="text" placeholder="Search...">
-        </li>
-        <ul class="menu-links">
-          <li class="nav-link">
-            <a href="#">
-              <i class='bx bx-home-alt icon'></i>
-              <span class="text nav-text" href="#">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="#">
-              <i class='bx bx-bar-chart-alt-2 icon'></i>
-              <span class="text nav-text">Revenue</span>
-            </a>
-          </li>
-          <li class="nav-link">
-            <a href="{{ url_for('analytics') }}">
-              <i class='bx bx-pie-chart-alt icon'></i>
-              <span class="text nav-text">Analytics</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="bottom-content">
-        <li>
-          <a href="#">
-            <i class='bx bx-log-out icon'></i>
-            <span class="text nav-text" href="#">Logout</span>
-          </a>
-        </li>
-        <li class="mode">
-          <div class="sun-moon">
-            <i class='bx bx-moon icon moon'></i>
-            <i class='bx bx-sun icon sun'></i>
-          </div>
-          <span class="mode-text text">Dark mode</span>
-          <div class="toggle-switch">
-            <span class="switch"></span>
-          </div>
-        </li>
-      </div>
-    </div>
-  </nav>
-
-  <section class="home">
-  </section>
-<script src="{{ url_for('static', filename='sidebar_utilities.js') }}"></script>
+    </nav>
+    <section class="home">
+    </section>
 </body>
-
 </html>
-{% endblock %}
