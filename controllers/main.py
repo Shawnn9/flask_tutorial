@@ -7,4 +7,4 @@ main_bp = Blueprint('main_bp', __name__, static_url_path='static',template_folde
 @main_bp.route('/main/')
 def main():
     username = session.get('username')
-    return render_template('main.html', username=username)
+    return render_template('base.html', username=username)
