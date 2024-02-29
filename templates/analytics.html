@@ -1,35 +1,61 @@
-{% extends "base.html" %}
-{% block title %}Analytics{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Analytics</title>
+    <link rel="stylesheet" href="analytics.css">
+</head>
+<body style="background-image:url('../static/images/img.jpg')">
+    <h1>User Analytics</h1>
+    <p>Welcome, {{ session_name }}!</p>
 
-{% block content %}
-<link rel="stylesheet" type="text/css" href="/static/styles/analytics.css">
-<body style="background-image:url('/static/images/img.jpg')"></body>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <div class="success-message">
-      {% for msg in messages %}
-        <p class="message_alert">{{msg}}</p>
-      {% endfor %}
+    <h2>Users:</h2>
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td class="action-buttons">
+                    <button class="menu-btn" onclick="openMenu(this)">Menu</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div id="menu" class="menu">
+        <form action="{{ url_for('analytics.update_user') }}" method="post">
+            <input type="hidden" id="menu-username" name="username" value="">
+            <input type="text" name="new_username" placeholder="New Username" required>
+            <input type="password" name="new_password" placeholder="New Password" required>
+            <button type="submit" class="update-btn">Update User</button>
+        </form>
+        <form action="{{ url_for('analytics.delete_user') }}" method="post">
+            <input type="hidden" id="menu-username-delete" name="username" value="">
+            <button type="submit" class="delete-btn">Delete User</button>
+        </form>
+        <button onclick="closeMenu()">Close</button>
     </div>
-  {% endif %}
-{% endwith %}
 
-<table class="user-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Username</th>
-      <th>Password</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for user in users %}
-      <tr>
-        <td>{{ user.id }}</td>
-        <td>{% if user.username %}{{ user.username }}{% else %}None{% endif %}</td>
-        <td>{{ user.password }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endblock %}
+    <script>
+        function openMenu(button) {
+            const tr = button.closest('tr');
+            const username = tr.querySelector('td:nth-child(2)').textContent;
+            document.getElementById('menu-username').value = username;
+            document.getElementById('menu-username-delete').value = username;
+            document.getElementById('menu').style.display = 'block';
+        }
+
+        function closeMenu() {
+            document.getElementById('menu').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
