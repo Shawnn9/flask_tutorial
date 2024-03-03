@@ -3,13 +3,14 @@
 :root {
     --primary-color: #5963ef;
     --table-header-bg-color: #f2f2f2;
-    --color: #333;
-    --text-color: #000;
+    --text-color: white;
 }
-
-.title-container {
-    text-align: center;
-    margin-top: 20px;
+body {
+    color: var(--text-color);
+    background-image: url('/static/images/img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .user-table {
@@ -29,80 +30,78 @@
     background-color: var(--table-header-bg-color);
 }
 
-.success-message {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: var(--primary-color);
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    left:140%;
+    position: relative;
+    color: var(--text-color);
+}
+
+.menu-icon {
+    display:block;
+    margin:auto;
+    cursor:pointer;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    width: auto;
+    padding: 10px;
+}
+.dropdown-content form input[type="submit"] {
+    margin-top: 5px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 8px 16px;
+    cursor: pointer;
     color: white;
-    padding: 15px;
-    margin: 15px;
 }
 
-table {
-    border: 1px;
-    color: var(--color);
+.dropdown-content form input[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: white;
 }
 
-.message_alert {
-    color: var(--color);
+.dropdown-content form {
+    display: block;
+    padding: 10px;
 }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        p {
-            color: #666;
-            text-align: center;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .action-buttons {
-            display: flex;
-            align-items: center;
-        }
-        .action-buttons form {
-            margin-right: 5px;
-        }
-        .action-buttons button {
-            background-color: #f44336;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .action-buttons button:hover {
-            background-color: #d32f2f;
-        }
-        .action-buttons button.delete-btn {
-            background-color: #f44336;
-        }
-        .action-buttons button.delete-btn:hover {
-            background-color: #d32f2f;
-        }
-        .action-buttons button.update-btn {
-            background-color: #4caf50;
-        }
-        .action-buttons button.update-btn:hover {
-            background-color: #388e3c;
-        }
+
+.dropdown-content form input[type="submit"] {
+    margin-top: 5px;
+}
+
+
+.dropdown:hover .dropdown-content,
+.dropbtn:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown:hover .menu-icon {
+    animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

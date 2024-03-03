@@ -3,58 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Analytics</title>
-    <link rel="stylesheet" href="analytics.css">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/analytics.css">
 </head>
-<body style="background-image:url('../static/images/img.jpg')">
-    <h1>User Analytics</h1>
-    <p>Welcome, {{ session_name }}!</p>
+<body style="background-image:url('/static/images/img.jpg')">
+    <div class="user-block">
+        <h2>Users:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
 
-    <h2>Users:</h2>
-    <table>
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Actions</th>
-        </tr>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td class="action-buttons">
-                    <button class="menu-btn" onclick="openMenu(this)">Menu</button>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn"><i class="bi bi-menu-button-wide"></i></button>
+                            <div class="dropdown-content">
+                                <form action="{{ url_for('analytics.delete_user') }}" method="post">
+                                    <input type="hidden" name="username_delete" value="{{ user.username }}">
+                                    <input type="submit" value="Delete User">
+                                </form>
+                                <form action="{{ url_for('analytics.update_name') }}" method="post">
+                                    <input type="hidden" name="username_update" value="{{ user.username }}">
+                                    <label for="new_name_{{ user.username }}">New Name:</label>
+                                    <input type="text" id="new_name_{{ user.username }}" name="new_name" required>
+                                    <input type="submit" value="Change Name">
+                                </form>
+                                <form action="{{ url_for('analytics.update_password') }}" method="post">
+                                    <input type="hidden" name="username_password" value="{{ user.username }}">
+                                    <label for="new_password_{{ user.username }}">New Password:</label>
+                                    <input type="password" id="new_password_{{ user.username }}" name="new_password" required>
+                                    <input type="submit" value="Change Password">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 
-    <div id="menu" class="menu">
-        <form action="{{ url_for('analytics.update_user') }}" method="post">
-            <input type="hidden" id="menu-username" name="username" value="">
-            <input type="text" name="new_username" placeholder="New Username" required>
-            <input type="password" name="new_password" placeholder="New Password" required>
-            <button type="submit" class="update-btn">Update User</button>
-        </form>
-        <form action="{{ url_for('analytics.delete_user') }}" method="post">
-            <input type="hidden" id="menu-username-delete" name="username" value="">
-            <button type="submit" class="delete-btn">Delete User</button>
-        </form>
-        <button onclick="closeMenu()">Close</button>
+            </tbody>
+        </table>
     </div>
-
     <script>
-        function openMenu(button) {
-            const tr = button.closest('tr');
-            const username = tr.querySelector('td:nth-child(2)').textContent;
-            document.getElementById('menu-username').value = username;
-            document.getElementById('menu-username-delete').value = username;
-            document.getElementById('menu').style.display = 'block';
-        }
+        var dropdowns = document.querySelectorAll('.dropdown');
 
-        function closeMenu() {
-            document.getElementById('menu').style.display = 'none';
+        dropdowns.forEach(function(dropdown) {
+            var button = dropdown.querySelector('.dropbtn');
+            var content = dropdown.querySelector('.dropdown-content');
+
+            button.addEventListener('click', function() {
+                content.classList.toggle('show');
+            });
+        });
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                dropdowns.forEach(function(dropdown) {
+                    var content = dropdown.querySelector('.dropdown-content');
+                    if (content.classList.contains('show')) {
+                        content.classList.remove('show');
+                    }
+                });
+            }
         }
     </script>
 </body>
