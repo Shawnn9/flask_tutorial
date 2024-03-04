@@ -14,7 +14,7 @@
 </head>
 <body style="background-image:url('../static/images/img.jpg')">
     <div class="wrapper">
-        <form action="{{ url_for('login') }}" method="POST" id="LoginForm">
+         <form action="{{ url_for('login') }}" method="POST" id="LoginForm">
             <h1>Login</h1>
             <div class="input-box">
                 <input type="text" name="nm" placeholder="Username" required />
@@ -29,7 +29,7 @@
                 <label><input type="checkbox" /> Remember me</label>
                 <a href="#">Forgot password?</a>
             </div>
-            <button type="button" onclick="submitForm()" class="loginPage">Login</button>
+            <button type="button" onclick="redirectToBase()" class="loginPage">Login</button>
 
             <div class="register-link">
                 <p>Don't have an account? <a href="#">Register</a></p>
@@ -37,10 +37,6 @@
         </form>
     </div>
 
-    <script>
-        function submitForm() {
-            document.getElementById("LoginForm").submit();
-        }
-    </script>
+<script src="/static/scripts/index.js"></script>
 </body>
 </html>
