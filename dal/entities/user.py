@@ -1,6 +1,9 @@
-from pydantic import BaseModel, EmailStr
+from beanie import Document
+from beanie import init_beanie
 
-class UserModel(BaseModel):
+from controllers.auth import connect_to_db
+
+class User(Document):
     username: str
     password: str
-    email: EmailStr
+    email: str
