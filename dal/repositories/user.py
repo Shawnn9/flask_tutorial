@@ -1,4 +1,3 @@
-from controllers.auth import connect_to_db
 from models.user import User
 from beanie import init_beanie
 from typing import Optional
