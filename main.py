@@ -3,6 +3,9 @@ from controllers.analytics import analytics_bp
 from config import config
 from controllers.auth import auth_bp
 from controllers.main import main_bp
+from beanie import init_beanie
+
+init_beanie()
 
 
 app = Flask(__name__, static_url_path='/static')
