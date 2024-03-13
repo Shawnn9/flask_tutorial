@@ -7,7 +7,7 @@
 }
 body {
     color: var(--text-color);
-    background-image: url('/static/images/img.jpg');
+    background-image: url('/static/images/background_img.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
