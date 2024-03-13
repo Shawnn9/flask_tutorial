@@ -3,7 +3,6 @@ from beanie import init_beanie
 from typing import Optional
 
 async def initialize_database() -> None:
-    await connect_to_db()
     await init_beanie()
 
 async def create_user(username: str, password: str, email: str) -> Optional[User]:
