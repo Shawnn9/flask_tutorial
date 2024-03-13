@@ -4,6 +4,7 @@ from config import config
 from controllers.auth import auth_bp
 from controllers.main import main_bp
 
+
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = config['SECRET_KEY']
 app.register_blueprint(auth_bp)
