@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+@font-face {
+  font-family: 'ariel';
+}
+
 
 :root {
   --color: #333;
@@ -103,7 +106,7 @@ body.dark .sidebar header .toggle {
   border-radius: 6px;
   background-color: var(--primary-color-light);
   cursor: pointer;
-  transition: background-color 0.3s; /* Adjusted transition */
+  transition: background-color 0.3s;
 }
 
 .sidebar li.search-box input {

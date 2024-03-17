@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+@font-face {
+  font-family: 'ariel';
+}
+
 
 :root {
     --primary-color: #5963ef;
