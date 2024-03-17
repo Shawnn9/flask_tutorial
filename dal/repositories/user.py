@@ -3,7 +3,7 @@ from beanie import init_beanie
 from typing import Optional
 
 
-init_beanie()
+# init_beanie()
 
 async def create_user(username: str, password: str, email: str) -> Optional[User]:
     try:

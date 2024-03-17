@@ -9,7 +9,9 @@ init_beanie()
 
 
 app = Flask(__name__, static_url_path='/static')
+
 app.secret_key = config['SECRET_KEY']
+
 app.register_blueprint(auth_bp)
 app.register_blueprint(main_bp)
 app.register_blueprint(analytics_bp)

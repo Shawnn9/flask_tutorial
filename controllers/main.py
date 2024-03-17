@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session
-
+from beanie import init_beanie
 
 main_bp = Blueprint('main_bp', __name__, static_url_path='static',template_folder='templates')
 

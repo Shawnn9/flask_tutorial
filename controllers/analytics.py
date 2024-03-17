@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session, request, redirect, url_for
 from models.user import User
+from beanie import init_beanie
 
 analytics_bp = Blueprint('analytics', __name__, static_url_path='/static', template_folder='templates')
 
