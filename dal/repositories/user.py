@@ -1,9 +1,7 @@
 from models.user import User
-from beanie import init_beanie
 from typing import Optional
 
 
-# init_beanie()
 
 async def create_user(username: str, password: str, email: str) -> Optional[User]:
     try:
